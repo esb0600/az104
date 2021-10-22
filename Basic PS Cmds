@@ -1,0 +1,22 @@
+# To see version of PS
+
+$PSVersionTable.PSVersion
+
+# To see modules installed
+
+Get-InstalledModule -Name Az -AllVersions | Select-Object -Property Name, Version
+
+# To install/update AZ Module in PS 7.1
+
+Install-Module -Name Az -AllowClobber -Repository PSGallery -Force
+
+# To connect to Azure
+
+Connect-AZAccount
+
+# To set Azure Subscription
+
+Get-AzSubscription  # to get list of subscriptions that you have access to
+
+$context = Get-AzSubscription -SubscriptionId [sub_id_from_above]
+Set-AzContext $context
